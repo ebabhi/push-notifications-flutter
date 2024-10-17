@@ -159,9 +159,37 @@ public class SwiftPusherBeamsPlugin: FlutterPluginAppLifeCycleDelegate, FlutterP
         }
     }
 
-    public override func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        // Handle the user interaction with the notification
-        // Not Implemented yet
-    }
+    public override func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                                    didReceive response: UNNotificationResponse, 
+                                                    withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+            guard let userInfo = response.notification.request.content.userInfo as? [String: Any] else { return }
+                        
+            print("Received notification. UserInfo: \(userInfo)")
+            
+            // Debug: Print the type of userInfo
+            print("Type of userInfo: \(type(of: userInfo))")
+            
+            // Debug: Print all keys in userInfo
+            print("Keys in userInfo: \(userInfo.keys)")
+                 
+            if let notificationData = userInfo["data"] as? [String: Any] {
+                print("Notification data found: \(notificationData)")
+                
+                if let info = notificationData["info"] as? [String: NSObject] {
+                    // Set the data field
+                    self.data = info
+                    print("SwiftPusherBeamsPlugin: Notification data set: \(String(describing: self.data))")
+                } else {
+                    print("Failed to cast 'info' to [String: NSObject]")
+                    print("Type of 'info': \(type(of: notificationData["info"]))")
+                }
+            } else {
+                print("No 'data' key found in userInfo, or it's not a dictionary")
+            }
+            
+            // Call the completion handler
+            completionHandler()
+        }
     
 }

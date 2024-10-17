@@ -1,6 +1,6 @@
 name: pusher_beams_ios
 description: The iOS implementation from Pusher Beams for Flutter, intended to be a platform-specific package.
-version: 1.1.1
+version: 1.1.2
 repository: https://github.com/pusher/push-notifications-flutter
 issue_tracker: https://github.com/pusher/push-notifications-flutter/issues?q=is%3Aissue+is%3Aopen+label%3Aios
 

@@ -1,6 +1,6 @@
 name: pusher_beams_platform_interface
 description: A common platform interface from Pusher Beams for Flutter, intended to be the platform interface package.
-version: 1.1.1
+version: 1.1.2
 repository: https://github.com/pusher/push-notifications-flutter
 issue_tracker: https://github.com/pusher/push-notifications-flutter/issues?q=is%3Aissue+is%3Aopen+label%3Ainterface
 
@@ -18,7 +18,7 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^1.0.0
   pigeon: ^1.0.14
-  mockito: ^5.0.16
+  # mockito: ^5.0.16
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
